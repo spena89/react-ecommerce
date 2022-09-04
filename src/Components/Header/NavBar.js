@@ -2,21 +2,24 @@
 import logo from "../../Assets/logo.jpg"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./NavBar.css"
+
+
 const NavBar = () =>{
     return(
         <header>
         {/* logo */}
         <img src ={logo} alt= "logo"/>
-        <h1>Ecommerce</h1>
+        <h1>Rafa's Hardware Store</h1>
 
         {/* NavBar */}
         <nav>
-            <a href ="#"> Catergoria 1</a>
-            <a href ="#"> Catergoria 2</a>
-            <a href ="#"> Catergoria 3</a>
+            <a href ="#"> Processors </a>
+            <a href ="#"> Graphics cards</a>
+            <a href ="#"> Motherboards </a>
+        <div class="animation start-home"></div>
         </nav>
 
-        {/* carrito */}
+        {/* Cart */}
         <ShoppingCartIcon />
         </header>
     )

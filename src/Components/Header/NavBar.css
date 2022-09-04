@@ -13,8 +13,20 @@ img{
     background-size: contain;
 }
 
-a{
+nav{
+    position: relative;
+    width: 590px;
+    background: #34495e;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.3)
+}
+
+nav a{
     padding: 0.5em;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    justify-content: center;
 }
