@@ -1,10 +1,18 @@
 import './App.css';
-import NavBar from './Components/Header/NavBar'
+import NavBar from './Components/NavBar/NavBar'
+import ItemListContainer from './Containers/ItemListContainer.js/ItemListContainer';
+
 
 
 const App = () =>{
+const greeting = "Welcome to Rafa's Hardware store";
+
 return(
-  <NavBar />
+<>
+<NavBar />
+<ItemListContainer greeting ={greeting}/>
+</>
+
 )
 }
 

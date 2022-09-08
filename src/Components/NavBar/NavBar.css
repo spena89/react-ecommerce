@@ -1,8 +1,10 @@
 header{
-    background-color: goldenrod;
+    background-color: rgb(38, 31, 121);
     display:flex;
     justify-content:space-around;
     align-items: center;
+    color: white;
+    
 
 }
 img{
@@ -16,8 +18,8 @@ img{
 nav{
     position: relative;
     width: 590px;
-    background: #34495e;
-    border-radius: 8px;
+    background: #4349a1;
+    border-radius: 5px;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,.3)
 }
 
