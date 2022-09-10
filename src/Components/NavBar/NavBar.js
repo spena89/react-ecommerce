@@ -1,7 +1,7 @@
 
 import logo from "../../Assets/logo.jpg"
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./NavBar.css"
+import CartWidget from "./Cartwidget/CartWidget"
 
 
 const NavBar = () =>{
@@ -20,7 +20,8 @@ const NavBar = () =>{
         </nav>
 
         {/* Cart */}
-        <ShoppingCartIcon />
+        
+        <CartWidget />
         </header>
     )
 }

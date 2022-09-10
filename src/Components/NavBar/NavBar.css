@@ -8,11 +8,12 @@ header{
 
 }
 img{
-    max-width: 3%;
+    max-width: 2%;
     padding: 10px;
     border-radius: 25px;
     height: auto;
     background-size: contain;
+    opacity: 0.85;
 }
 
 nav{
