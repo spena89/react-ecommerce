@@ -5,15 +5,15 @@ import ItemListContainer from './Containers/ItemListContainer.js/ItemListContain
 
 
 const App = () =>{
-const greeting = "Welcome to Rafa's Hardware store";
+    const greeting = "Welcome to Rafa's Hardware store";
 
-return(
-<>
-<NavBar />
-<ItemListContainer greeting ={greeting}/>
-</>
+    return(
+    <>
+        <NavBar />
+        <ItemListContainer greeting = {greeting} />
+    </>
 
-)
+    )
 }
 
 
