@@ -15,7 +15,7 @@ const NavBar = () =>{
             <a href ="#"> Processors </a>
             <a href ="#"> Graphics cards</a>
             <a href ="#"> Motherboards </a>
-        <div class="animation start-home"></div>
+        <div></div>
         </nav>
 
         {/* Cart */}

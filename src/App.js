@@ -8,16 +8,11 @@ import ItemListContainer from './Containers/ItemListContainer.js/ItemListContain
 
 const App = () =>{
     const greeting = "Welcome to Rafa's Hardware store";
-
-    const onAdd= (contador) =>{
-        console.log("exito");
-        console.log(contador)
-    }
     return(
     <>
         <NavBar />
         <ItemListContainer greeting = {greeting} />
-        <ItemCount stock = {5} onAdd={onAdd} initial ={0}/>
+        <ItemCount stock = {5} initial ={1}/>
     </>
     )
 }

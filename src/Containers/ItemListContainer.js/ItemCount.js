@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import "./itemCount.css"
 import { Button } from '@mui/material';
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock   }) => {
     
     
     const [contador,setContador] = useState(1);
@@ -18,6 +18,10 @@ const ItemCount = ({stock}) => {
             setContador(contador -1);  
         }
     }
+const onAdd= () =>{
+    console.log("exito");
+    console.log({contador})
+}
     
     return (
             <>
@@ -32,7 +36,7 @@ const ItemCount = ({stock}) => {
             </Button>
         </div>
         <div>
-            {/* <button className="addToCart" onClick={onAdd}>add To Cart</button> */}
+            <button className="addToCart" onClick={onAdd}>add To Cart</button>
         </div>
             </>
         )
