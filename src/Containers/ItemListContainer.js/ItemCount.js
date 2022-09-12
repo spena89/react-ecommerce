@@ -25,6 +25,7 @@ const ItemCount = ({stock, initial}) => {
     }
 
     const onAdd= () =>{
+        setContador(initial);
         console.log("exito");
         console.log({contador})
     }
