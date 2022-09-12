@@ -1,8 +1,7 @@
 
 import logo from "../../Assets/logo.jpg"
 import "./NavBar.css"
-import CartWidget from "./Cartwidget/CartWidget"
-
+import CartWidget from "../CartWidget/CartWidget"
 
 const NavBar = () =>{
     return(
@@ -25,5 +24,6 @@ const NavBar = () =>{
         </header>
     )
 }
+
 
 export default NavBar
