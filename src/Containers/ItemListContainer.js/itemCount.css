@@ -5,3 +5,7 @@
     font-weight: bold;
     border-radius: 3px;
 }
+
+image{
+    min-width:100%   
+}
