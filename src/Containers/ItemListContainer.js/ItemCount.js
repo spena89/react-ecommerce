@@ -1,31 +1,27 @@
 import React, {useState} from 'react'
 import "./itemCount.css"
-import { Button } from '@mui/material';
-
 import {Card,
     CardActions,
     CardContent,
     CardMedia,
-    Typography} from '@mui/material';
+    Typography,
+    Button} from '@mui/material';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({initial, prod}) => {
 
     const [contador,setContador] = useState(initial);
     
+    // short circuit conditionals
     const increment = ()=>{
-        if(contador < stock){
-            setContador(contador +1);
-        }
+        contador < prod.stock && setContador(contador +1);
     }
 
     const decrement = ()=>{
-        if(contador > 1 ){
-            setContador(contador -1);  
-        }
+        contador > 1 && setContador(contador -1); 
     }
 
     const onAdd= () =>{
-        setContador(initial);
+    setContador(initial);
         console.log("exito");
         console.log({contador})
     }
@@ -35,25 +31,23 @@ const ItemCount = ({stock, initial}) => {
                 <CardMedia
                 component="img"
                 height="140px"
-                alt="nvidia rtx 3080"
-                image="https://www.tradeinn.com/f/13880/138802072_5/asus-rog-strix-nvidia-geforce-rtx-3080-oc-12gb-gddr6-graphic-card.jpg"
+                alt={prod.product}
+                image={prod.image}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Nvidia RTX 3080
+                        {prod.product}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Highend graphics card Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Et laudantium maiores facere eius illum doloribus culpa atque voluptatibus nulla quisquam,
-                        laborum blanditiis amet. Magni iure repellat itaque ducimus, dolore corporis.
+                        {prod.description}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" color="primary" onClick ={decrement} size="small">
+                    <Button disabled={contador === initial} variant="contained" color="primary" onClick ={decrement} size="small">
                         -
                     </Button>
                     <span className ="contador">{contador}</span>
-                    <Button variant="contained" color="primary" onClick={increment} size="small">
+                    <Button disabled={contador === prod.stock} variant="contained" color="primary" onClick={increment} size="small">
                         +
                     </Button>
                 </CardActions>
