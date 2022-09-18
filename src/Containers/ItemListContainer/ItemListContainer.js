@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 import ItemList from "../../Components/ItemList/ItemList"
 import PuffLoader from "react-spinners/PuffLoader";
 import Spinner from "./Spinner.css"
-
+import "./itemCount.css"
 
 const ItemListContainer = ({greeting}) => {
     
@@ -28,7 +28,7 @@ const ItemListContainer = ({greeting}) => {
         <>
         <h1>{greeting}</h1>
         {loading ? <PuffLoader className="loader" color={"#000000"} loading={loading} size={150} /> :
-        <ItemList listProducts = {listProducts} />
+        <ItemList listProducts = {listProducts}/>
         }
         {/* <ItemCount stock = {5} initial ={1} onAdd={() =>{}}/> */}
         </>

@@ -1,16 +1,18 @@
 import Item from "../Item/Item";
-
-import ItemCount from "../../Containers/ItemListContainer.js/ItemCount";
+import ItemCount from "../../Containers/ItemListContainer/ItemCount"
 
 const ItemList = ({ listProducts }) => {
+    
     return (
         <>
-            {listProducts.map((prod, i) => (
-                <ItemCount
-                key={`${prod.product}-${i} `}
-                initial={1}
-                prod={prod}
-                ></ItemCount>
+            {listProducts.map((prod, i) => ( 
+                <div key ={i}>
+                    <Item 
+                    key={`${prod.product}-${i} `} 
+                    prod={prod} 
+                    />
+                    <ItemCount initial = {1} prod ={prod}/>
+                </div>
             ))}
         </>
     );

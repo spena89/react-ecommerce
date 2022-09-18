@@ -1,7 +1,6 @@
 import './App.css';
 import ResponsiveAppBar from "./Components/NavBar/NavBar"
-import ItemCount from './Containers/ItemListContainer.js/ItemCount';
-import ItemListContainer from './Containers/ItemListContainer.js/ItemListContainer';
+import ItemListContainer from './Containers/ItemListContainer/ItemListContainer';
 
 
 
