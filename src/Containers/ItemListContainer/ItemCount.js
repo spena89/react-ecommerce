@@ -7,7 +7,7 @@ const ItemCount = ({initial, prod}) => {
     const [contador,setContador] = useState(initial);
     
     // short circuit conditionals
-    const increment = ()=>{
+    const increment = ()=>{     
         contador < prod.stock && setContador(contador +1);
     }
 

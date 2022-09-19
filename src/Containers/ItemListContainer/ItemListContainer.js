@@ -1,6 +1,5 @@
 
 import {products} from "../../Assets/productos"
-import {customFetch} from '../../Utils/customFetch'
 import {useState, useEffect} from 'react'
 import ItemList from "../../Components/ItemList/ItemList"
 import PuffLoader from "react-spinners/PuffLoader";
@@ -15,22 +14,29 @@ const ItemListContainer = ({greeting}) => {
 
     useEffect(() => {
         setLoading(true)
-        customFetch(products)
-            .then(res => {
-                setLoading(false)
-                setListProducts(res)
+        fetch('https://fakestoreapi.com/products/category/electronics')
+            .then(res=>res.json())
+            .then (res=>{
+                console.log(res)
+                res.forEach((element)=>{
+                    element.stock = Math.floor(Math.random()*(10));                    
                 })
+                console.log(res)
+                setListProducts(res)
+            }
+            )
+            .finally (()=>{
+                setLoading(false)
+            })
     },[])
 
-    console.log(listProducts
-        )
     return (
         <>
         <h1>{greeting}</h1>
         {loading ? <PuffLoader className="loader" color={"#000000"} loading={loading} size={150} /> :
         <ItemList listProducts = {listProducts}/>
         }
-        {/* <ItemCount stock = {5} initial ={1} onAdd={() =>{}}/> */}
+        {/* <ItemCount/> */}
         </>
     )
 }
