@@ -1,10 +1,8 @@
-
-import {products} from "../../Assets/productos"
 import {useState, useEffect} from 'react'
 import ItemList from "../../Components/ItemList/ItemList"
 import PuffLoader from "react-spinners/PuffLoader";
-import Spinner from "./Spinner.css"
 import "./itemCount.css"
+import "./Spinner.css"
 
 const ItemListContainer = ({greeting}) => {
     
@@ -14,20 +12,19 @@ const ItemListContainer = ({greeting}) => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://fakestoreapi.com/products/category/electronics')
+        fetch('https://fakestoreapi.com/products?limit=5')
             .then(res=>res.json())
-            .then (res=>{
-                console.log(res)
-                res.forEach((element)=>{
-                    element.stock = Math.floor(Math.random()*(10));                    
+            .then (data=>{
+                const productList = data.map((product)=>{
+                    return {...product, stock:Math.floor(Math.random()*20)}
                 })
-                console.log(res)
-                setListProducts(res)
+                setListProducts(productList)
+                console.log(productList)
             }
             )
-            .finally (()=>{
+            .finally(()=>{
                 setLoading(false)
-            })
+            }) 
     },[])
 
     return (
@@ -36,7 +33,6 @@ const ItemListContainer = ({greeting}) => {
         {loading ? <PuffLoader className="loader" color={"#000000"} loading={loading} size={150} /> :
         <ItemList listProducts = {listProducts}/>
         }
-        {/* <ItemCount/> */}
         </>
     )
 }

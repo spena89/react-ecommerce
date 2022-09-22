@@ -12,7 +12,7 @@ const ItemList = ({ listProducts }) => {
                     key={`${prod.title}-${i} `} 
                     prod={prod} 
                     />
-                    <ItemCount initial = {1} prod ={prod}/>
+                    <ItemCount initial = {1} stock ={prod.stock}/>
                 </div>
             ))}
         </div>
