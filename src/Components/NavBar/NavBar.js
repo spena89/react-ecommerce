@@ -14,8 +14,9 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "../../Assets/logo.jpg";
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link, NavLink } from 'react-router-dom'
 
-const pages = ["Graphics cards", "Processors", "Motherboards"];
+const pages = ["Electronics", "Jewlery", "Mens-clothing","Womens-clothing"];
 const settings = ["Account", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -42,11 +43,10 @@ const handleCloseUserMenu = () => {
           <Container maxWidth="false">
             <Toolbar disableGutters>
               <img className="imgLogo" src={logo} alt="logo" />
+              <Link style={linkStyles.links} to ={'/'}> 
               <Typography
                 variant="h6"
                 noWrap
-                component="a"
-                href="/"
                 sx={{
                   mr: 2,
                   display: { xs: "none", md: "flex" },
@@ -59,6 +59,7 @@ const handleCloseUserMenu = () => {
               >
                 Rafa's HW store
               </Typography>
+              </Link>
             
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
@@ -91,29 +92,30 @@ const handleCloseUserMenu = () => {
                 >
                   {pages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                      <Typography textAlign="center"> 
+                      <NavLink style={burgerLinkStyles.links} to ={`/Category/${page}`}>
+                      {page}
+                      </NavLink>  
+                      </Typography>
                     </MenuItem>
                   ))}
                 </Menu>
               </Box>
+              <Link style={rhsLogo.links}to ="/">
               <Typography
                 variant="h5"
                 noWrap
-                component="a"
-                href=""
                 sx={{
                   mr: 2,
                   display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
                   fontFamily: "monospace",
                   fontWeight: 700,
                   letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
                 }}
               >
                 RHS
               </Typography>
+              </Link>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (
                   <Button
@@ -121,7 +123,9 @@ const handleCloseUserMenu = () => {
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    {page}
+                    <NavLink style={linkStyles.links} to ={`/Category/${page}`}>
+                      {page}
+                    </NavLink>
                   </Button>
                 ))}
               </Box>
@@ -154,10 +158,36 @@ const handleCloseUserMenu = () => {
                   ))}
                 </Menu>
               </Box>
+              <Link style = {linkStyles.links} to ={"/cart"}>
               <CartWidget />
+              </Link>
             </Toolbar>
           </Container>
         </AppBar>
     );    
 };
+
+const linkStyles = {
+    links: {
+      textDecoration:"none",
+      color:"white"
+    }
+}
+
+const burgerLinkStyles = {
+  links: {
+    textDecoration:"none",
+    color:"black"
+  }
+}
+
+const rhsLogo = {
+  links: {
+    textDecoration:"none",
+    color:"white",
+    flexGrow:"1"
+
+  }
+}
+
 export default ResponsiveAppBar;

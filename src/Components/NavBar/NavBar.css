@@ -32,3 +32,10 @@ nav a{
     text-align: center;
     justify-content: center;
 }
+
+.active{
+    font-size: 1.5em;
+    box-shadow: 20px 20px 50px 10px rgba(15, 18, 43, 0.384) inset;
+    border-radius: 10px;
+    padding: 10px;
+}

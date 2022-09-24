@@ -5,20 +5,21 @@ import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailCont
 import {
     BrowserRouter,
     Routes,
-    Route} from "react-router-dom"
+    Route
+} from "react-router-dom"
 
 
 
 
 const App = () =>{
-    const greeting = "Welcome to Rafa's Hardware store";
+    const greeting = "Deals of the day";
     return(
     <>
-    <BrowserRouter>
-        <ResponsiveAppBar />
-        <ItemListContainer greeting = {greeting} />
-        <ItemDetailContainer greeting = {greeting} />
-    </BrowserRouter>
+        
+            <ResponsiveAppBar />
+            <ItemListContainer greeting = {greeting} />
+            <ItemDetailContainer greeting = {greeting} />
+        
     </>
     )
 }
