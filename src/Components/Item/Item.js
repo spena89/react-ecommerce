@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
 
     const Item = ({prod}) => { 
-        const url = `../product/${prod.id}`
+        const urlDetails = `../product/${prod.id}`
         
         return(  
             <Box sx={{marginRight:10}}>
@@ -30,7 +30,7 @@ import { NavLink } from 'react-router-dom';
                     </Typography>
                     </CardContent>
 
-                    <NavLink to ={url}> ver más</NavLink>
+                    <NavLink to ={urlDetails}> ver más</NavLink>
             </Card>
         </Box>
     )

@@ -9,7 +9,7 @@ import "../../Containers/ItemListContainer/itemCount.css"
 
 const ItemDetails = ({prod}) => { 
     return(
-        <Box sx={{marginRight:10}}>
+        <Box sx={{marginTop:10}}>
             <Card sx={{ maxWidth: 800, height: 700 } }>
                 <CardMedia
                     component="img"
