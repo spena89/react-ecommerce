@@ -4,9 +4,11 @@ import {Card,
     CardMedia,
     Typography} from '@mui/material';
 import Box from '@mui/material/Box';
+import { NavLink } from 'react-router-dom';
 
     const Item = ({prod}) => { 
- 
+        const url = `../product/${prod.id}`
+        
         return(  
             <Box sx={{marginRight:10}}>
                 <Card sx={{ maxWidth: 230 }}>
@@ -27,6 +29,8 @@ import Box from '@mui/material/Box';
                     $ {prod.price}
                     </Typography>
                     </CardContent>
+
+                    <NavLink to ={url}> ver más</NavLink>
             </Card>
         </Box>
     )

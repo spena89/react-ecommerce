@@ -15,9 +15,7 @@ const ItemDetailContainer = () =>{
 
         const getItem = async () => {
             try{
-                const item = await fetch(`https://fakestoreapi.com/products/' + ${parseInt(productID)} `)
-                console.log(productID)
-                console.log(item)
+                const item = await fetch(`https://fakestoreapi.com/products/${productID} `)
                 const itemData = await item.json()
                 setProduct(itemData);
             }

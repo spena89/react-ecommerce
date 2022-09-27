@@ -34,8 +34,10 @@ const ItemDetails = ({prod}) => {
                     </Typography>
                 </CardContent>
                 <Box display="flex" justifyContent="center" alignItems="center">
-                    <ItemCount />
-                </Box>    
+                    {/* stock hardcodeado hasta definir como manejarlo */}
+                <ItemCount initial = {1} stock ={10} />    
+                </Box>
+                    
             </Card>
         
         </Box>
