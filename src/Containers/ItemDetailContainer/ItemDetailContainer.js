@@ -2,17 +2,22 @@ import {useState, useEffect} from 'react'
 import PuffLoader from "react-spinners/PuffLoader";
 import "../ItemListContainer/Spinner.css"
 import  ItemDetails  from '../../Components/Item/ItemDetails';
+import {useParams} from "react-router-dom"
 
 const ItemDetailContainer = () =>{
 
     const [product,setProduct] = useState ({})
     const [loading, setLoading] = useState(true);
 
+    const {productID} = useParams();
+
     useEffect(()=>{
 
         const getItem = async () => {
             try{
-                const item = await fetch('https://fakestoreapi.com/products/1')    
+                const item = await fetch(`https://fakestoreapi.com/products/' + ${parseInt(productID)} `)
+                console.log(productID)
+                console.log(item)
                 const itemData = await item.json()
                 setProduct(itemData);
             }
@@ -24,7 +29,8 @@ const ItemDetailContainer = () =>{
                  } 
         }
     getItem(); 
-    }, [] )
+    }, [productID] )
+    
     return(
         <>
             {loading ? <PuffLoader className="loader" color={"#000000"} loading={loading} size={150} /> :

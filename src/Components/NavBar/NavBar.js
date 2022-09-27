@@ -16,7 +16,7 @@ import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from 'react-router-dom'
 
-const pages = ["Electronics", "Jewlery", "Mens-clothing","Womens-clothing"];
+const pages = ["electronics", "jewelery", "men's clothing","women's clothing"];
 const settings = ["Account", "Logout"];
 
 const ResponsiveAppBar = () => {

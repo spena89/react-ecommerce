@@ -3,16 +3,22 @@ import ItemList from "../../Components/ItemList/ItemList"
 import PuffLoader from "react-spinners/PuffLoader";
 import "./itemCount.css"
 import "./Spinner.css"
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({greeting}) => {
+
+    let { categoryID } = useParams();
     
 
     const[listProducts,setListProducts] = useState([])
     const[loading,setLoading]= useState(true)
 
+    const url_base = 'https://fakestoreapi.com/products'
+    const url_category = 'https://fakestoreapi.com/products/category/'
+
     useEffect(() => {
         setLoading(true)
-        fetch('https://fakestoreapi.com/products?limit=5')
+        fetch((categoryID === undefined) ?`${url_base}`: `${url_category}${categoryID}`)
             .then(res=>res.json())
             .then (data=>{
                 const productList = data.map((product)=>{
@@ -25,7 +31,7 @@ const ItemListContainer = ({greeting}) => {
             .finally(()=>{
                 setLoading(false)
             }) 
-    },[])
+    },[categoryID])
 
     return (
         <>

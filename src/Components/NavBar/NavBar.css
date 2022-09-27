@@ -1,11 +1,3 @@
-header{
-    background-color: rgb(38, 31, 121);
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    color: white;
-}
-
 .imgLogo{
     max-width: 2%;
     padding: 10px;
@@ -15,27 +7,10 @@ header{
     opacity: 0.85;
 }
 
-nav{
-    position: relative;
-    width: 590px;
-    background: #4349a1;
-    border-radius: 5px;
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,.3)
-}
-
-nav a{
-    padding: 0.5em;
-    text-decoration: none;
-    font-size: 1.3em;
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-    justify-content: center;
-}
-
 .active{
-    font-size: 1.5em;
+    font-size: 1.1em;
     box-shadow: 20px 20px 50px 10px rgba(15, 18, 43, 0.384) inset;
     border-radius: 10px;
     padding: 10px;
+    transform: tanslateX(100px);
 }
