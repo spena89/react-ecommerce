@@ -42,11 +42,10 @@ const ItemDetails = ({prod}) => {
                         {prod.description}
                     </Typography>
                     <Typography align="center" variant="h5">
-                    $ {prod.price} 
-                    {console.log(prod)}
+                        $ {prod.price} 
                     </Typography>
                     <Typography align ="center">
-                    only {prod.stock} in stock!
+                        only {prod.stock} in stock!
                     </Typography>
                 </CardContent>
                 <Box display="flex" justifyContent="center" alignItems="center">

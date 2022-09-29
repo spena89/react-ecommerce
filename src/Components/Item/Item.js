@@ -24,7 +24,7 @@ import { height } from '@mui/system';
                         {prod.title}
                     </Typography>
                     <Typography sx={{textAlign:"center", marginTop:"20px"}} >
-                    $ {prod.price}
+                        $ {prod.price}
                     </Typography>
                     </CardContent>
                     <Box sx={{ textAlign:"center"}}>
