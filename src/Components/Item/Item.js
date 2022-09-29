@@ -5,14 +5,15 @@ import {Card,
     Typography} from '@mui/material';
 import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
+import { height } from '@mui/system';
 
     const Item = ({prod}) => { 
         const urlDetails = `../product/${prod.id}`
         
         return(  
-            <Box sx={{marginRight:10}}>
-                <Card sx={{ maxWidth: 230 }}>
-                    <CardMedia
+            <Box sx={{margin: "0 auto", height:"350"}}>
+                <Card raised sx={{ maxWidth: 230, margin:1.5, height:500 }}>
+                    <CardMedia sx={{padding:"1em", width:"90%", margin:"0 auto"}}
                         component="img"
                         height="140px"
                         alt={prod.title}
@@ -22,15 +23,13 @@ import { NavLink } from 'react-router-dom';
                     <Typography gutterBottom variant="h5" component="div">
                         {prod.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" noWrap gutterBottom>
-                        {prod.description}
-                    </Typography>
-                    <Typography align="center" >
+                    <Typography sx={{textAlign:"center", marginTop:"20px"}} >
                     $ {prod.price}
                     </Typography>
                     </CardContent>
-
+                    <Box sx={{ textAlign:"center"}}>
                     <NavLink to ={urlDetails}> ver más</NavLink>
+                    </Box>
             </Card>
         </Box>
     )
