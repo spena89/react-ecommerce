@@ -26,13 +26,13 @@ const ItemDetails = ({prod}) => {
     generateStock();
 
     return(
+        
         <Box sx={{marginTop:10}}>
-            <Card sx={{ maxWidth: 800, height: 700 } }>
                 <CardMedia
                     component="img"
-                    height="300px"
                     alt={prod.title}
                     image={prod.image}
+                    sx={{padding:"1em 1em 0 1em", width:"25%", margin:"0 auto"}}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -57,10 +57,7 @@ const ItemDetails = ({prod}) => {
 
                   
                 }
-                </Box>
-
-            </Card>
-        
+                </Box>        
         </Box>
     )
 }
