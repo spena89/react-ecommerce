@@ -49,12 +49,9 @@ const ItemDetails = ({prod}) => {
                     </Typography>
                 </CardContent>
                 <Box display="flex" justifyContent="center" alignItems="center">
-                    {/* stock hardcodeado hasta definir como manejarlo */}
                 {
                    goToCart ? <Link style = {linkStyles.links} to ='/cart'> <Button variant="contained" color="primary">Finish Purchase </Button> </Link> :  
-                   <ItemCount initial = {1} stock ={prod.stock} onAdd={onAdd} />    
-
-                  
+                   <ItemCount initial = {1} stock ={prod.stock} onAdd={onAdd} />                 
                 }
                 </Box>        
         </Box>
