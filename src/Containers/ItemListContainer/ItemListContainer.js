@@ -20,10 +20,8 @@ const ItemListContainer = ({greeting}) => {
         setLoading(true)
         fetch((categoryID === undefined) ?`${url_base}`: `${url_category}${categoryID}`)
             .then(res=>res.json())
-            .then (data=>{
-                const productList = data.map((product)=>{
-                    return {...product, stock:Math.floor(Math.random()*20)}
-                })
+            .then ((productList)=>{
+                
                 setListProducts(productList)
                 console.log(productList)
             }

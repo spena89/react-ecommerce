@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import "./itemCount.css"
 
 import {Button} from '@mui/material';
 
-const ItemCount = ({initial, stock}) => {
+const ItemCount = ({initial, stock, onAdd}) => {
 
     const [contador,setContador] = useState(initial);
     
@@ -15,11 +16,7 @@ const ItemCount = ({initial, stock}) => {
         contador > 1 && setContador(contador -1); 
     }
 
-    const onAdd= () =>{
-    setContador(initial);
-        console.log("exito");
-        console.log({contador})
-    }
+
     return (
         <div>
             <Button disabled={contador === initial} variant="contained" color="primary" onClick ={decrement} size="small">

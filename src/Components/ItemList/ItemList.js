@@ -1,5 +1,5 @@
 import Item from "../Item/Item";
-import ItemCount from "../../Containers/ItemListContainer/ItemCount"
+
 import "./itemList.css"
 
 const ItemList = ({ listProducts }) => {
@@ -12,7 +12,6 @@ const ItemList = ({ listProducts }) => {
                     key={`${prod.title}-${i} `} 
                     prod={prod} 
                     />
-                    <ItemCount initial = {1} stock ={prod.stock}/>
                 </div>
             ))}
         </div>
