@@ -5,7 +5,6 @@ import {Card,
     Typography} from '@mui/material';
 import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
-import { height } from '@mui/system';
 
     const Item = ({prod}) => { 
         const urlDetails = `../product/${prod.id}`
