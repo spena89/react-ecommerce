@@ -5,14 +5,18 @@ import ItemCount from "../../Containers/ItemListContainer/ItemCount";
 import "../../Containers/ItemListContainer/itemCount.css";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
-import Swal from "sweetalert2";
+import {useCartContext} from "../../Context/CartContext"
 
 const ItemDetails = ({ prod }) => {
+
     const [goToCart, setGoToCart] = useState(false);
 
-    const onAdd = () => {
+    const {addToCart, cartList} = useCartContext();
+    
+    const onAdd = (quantity) => {
         setGoToCart(true);
-        console.log(goToCart);
+        console.log(quantity)
+        addToCart(prod, quantity)
     };
 
     const generateStock = () => {
@@ -20,8 +24,6 @@ const ItemDetails = ({ prod }) => {
         prod.stock = stock;
     };
     generateStock();
-
-    const productTitle = prod.title;
 
     return (
         <Box sx={{ marginTop: 10 }}>
@@ -51,18 +53,13 @@ const ItemDetails = ({ prod }) => {
             </CardContent>
             <Box display="flex" justifyContent="center" alignItems="center">
                 {goToCart ? (
-                    <Link style={linkStyles.links} to="/cart"> 
+                    <Link style={linkStyles.links} to="/cart">
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={Swal.fire({
-                                title: "Success",
-                                text: productTitle + "added to cart",
-                                icon: "success",
-                                confirmButtonText: "Ok",
-                            })}
-                        >
+                            >
                             Finish Purchase
+                            {console.log(cartList)}
                         </Button>
                     </Link>
                 ) : (
