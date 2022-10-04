@@ -30,7 +30,7 @@ const ItemCount = ({ initial, stock, onAdd , prod }) => {
                 +
             </Button>
             <div className="addToCartButton">
-                <Button variant = "contained" color = "primary" onClick = {()=>{ onAdd(count)} }>
+                <Button variant = "contained" color = "primary" onClick = {()=> onAdd(count) }>
                     Add to cart
                 </Button>
             </div>
