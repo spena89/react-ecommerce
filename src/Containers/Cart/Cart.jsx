@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useCartContext } from "../../Context/CartContext";
 import {
     CardContent,
@@ -8,18 +8,19 @@ import {
     CardMedia,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import "./Cart.css"
 
 const Cart = () => {
     const { cartList, totalPrice, removeProduct, emptyCart } = useCartContext();
 
+    const [inHover, setHover] = useState(false);
     return (
         <div>
             {cartList.map((prod) => (
-                <Card sx={{ minWidth: 275, margin: "6px" }} key={prod.id}>
-                    <Grid
+                <Card  sx={{ minWidth: 275, margin: "6px" }} key={prod.id}>
+                    <Grid className="cartItem"
                         container
                         spacing={0}
                         alignItems="center"
@@ -56,11 +57,10 @@ const Cart = () => {
                             </CardContent>
                         </Grid>
                         <Grid item xs={4}>
-                            <IconButton
+                            <DeleteIcon onMouseEnter={()=>setHover(true)} onMouseLeave={()=> setHover(false)}
                                 aria-label="delete"
-                                onClick={() => removeProduct(prod.id)}
-                            />
-                            <DeleteIcon />
+                                onClick={() => removeProduct(prod.id)}/>
+                                {inHover && <span className="delete">Delete?</span>}
                         </Grid>
                     </Grid>
                 </Card>
@@ -86,7 +86,7 @@ const Cart = () => {
                             variant="contained"
                             color="error"
                             size="small"
-                            onClick={() => emptyCart()}>
+                            onClick={() => emptyCart()} >
                             Vaciar carrito
                         </Button>
                         <p>Cart Total : USD ${totalPrice()}</p>

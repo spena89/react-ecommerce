@@ -1,0 +1,10 @@
+.cartItem{
+    background-color: rgba(212, 198, 74, 0.375);  
+}
+
+.delete{
+    background-color: rgba(255, 0, 0, 0.348);
+    border-radius: 35px;
+    padding:3px ;
+    margin: 5px;
+}
