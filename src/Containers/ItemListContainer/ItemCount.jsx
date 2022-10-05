@@ -3,7 +3,7 @@ import "./itemCount.css";
 
 import { Button } from "@mui/material";
 
-const ItemCount = ({ initial, stock, onAdd , prod }) => {
+const ItemCount = ({ initial, stock, onAdd, prod }) => {
     const [count, setCount] = useState(initial);
 
     // short circuit conditionals
@@ -13,7 +13,7 @@ const ItemCount = ({ initial, stock, onAdd , prod }) => {
     return (
         <div>
             <Button
-                disabled = {count === initial}
+                disabled={count === initial}
                 variant="contained"
                 color="primary"
                 onClick={decrement}
@@ -30,7 +30,10 @@ const ItemCount = ({ initial, stock, onAdd , prod }) => {
                 +
             </Button>
             <div className="addToCartButton">
-                <Button variant = "contained" color = "primary" onClick = {()=> onAdd(count) }>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => onAdd(count)}>
                     Add to cart
                 </Button>
             </div>
