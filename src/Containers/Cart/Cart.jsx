@@ -15,13 +15,13 @@ import "./Cart.css";
 
 const Cart = () => {
     const { cartList, totalPrice, removeProduct, emptyCart } = useCartContext();
-
     const [inHover, setHover] = useState(false);
+    
     return (
         <div>
             {cartList.map((prod) => (
                 <Card sx={{ minWidth: 275, margin: "6px"}} key={prod.id}>
-                    <Fade in="true" timeout={700}>
+                    <Fade in = {true} timeout={600}>
                         <Grid
                             className="cartItem"
                             container
@@ -62,12 +62,12 @@ const Cart = () => {
 
                             <Grid item xs={4}>
                                 <DeleteIcon
-                                    onMouseEnter={() => setHover(true)}
-                                    onMouseLeave={() => setHover(false)}
+                                    onMouseOver={() => setHover(true)}
+                                    // onMouseLeave={() => setHover(false)}
                                     aria-label="delete"
                                     onClick={() => removeProduct(prod.id)}
-                                />
-                                {inHover && (
+                                    />
+                                    {inHover && (
                                     <span className="delete">Delete?</span>
                                 )}
                             </Grid>

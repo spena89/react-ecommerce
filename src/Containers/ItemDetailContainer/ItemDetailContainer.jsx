@@ -3,6 +3,8 @@ import PuffLoader from "react-spinners/PuffLoader";
 import "../ItemListContainer/Spinner.css";
 import ItemDetails from "../../Components/Item/ItemDetails";
 import { useParams } from "react-router-dom";
+import { db } from "../../Firebase/firebase";
+import { doc, getDoc, collection } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
@@ -11,21 +13,25 @@ const ItemDetailContainer = () => {
     const { productID } = useParams();
 
     useEffect(() => {
-        const getItem = async () => {
-            try {
-                const item = await fetch(
-                    `https://fakestoreapi.com/products/${productID} `
-                );
-                const itemData = await item.json();
-                setProduct(itemData);
-            } catch {
-                console.error("something went wrong fetching API");
-            } finally {
-                setLoading(false);
+            const productCollection = collection(db,'products')
+            const refDoc = doc(productCollection, productID)
+            getDoc(refDoc)
+            .then((result)=>{
+                setProduct(
+                    {
+                        id:result.id,
+                        ...result.data()
+                    }
+                )
+            })
+            .catch(()=>{
+                console.log("error")
+            })
+            .finally(()=>{ 
+                setLoading(false)
             }
-        };
-        getItem();
-    }, [productID]);
+            )
+         }, [productID]);
 
     return (
         <>

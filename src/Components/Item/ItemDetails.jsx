@@ -18,12 +18,7 @@ const ItemDetails = ({ prod }) => {
         console.log(quantity)
         addToCart(prod, quantity)
     };
-
-    const generateStock = () => {
-        const stock = Math.floor(Math.random() * 20);
-        prod.stock = stock;
-    };
-    generateStock();
+    console.log(prod)
 
     return (
         <Box sx={{ marginTop: 10 }}>

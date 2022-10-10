@@ -4,6 +4,8 @@ import PuffLoader from "react-spinners/PuffLoader";
 import "./itemCount.css";
 import "./Spinner.css";
 import { useParams } from "react-router-dom";
+import { db } from "../../Firebase/firebase"
+import { getDocs, collection, query, where } from "firebase/firestore"
 
 const ItemListContainer = ({ greeting }) => {
     let { categoryID } = useParams();
@@ -11,25 +13,32 @@ const ItemListContainer = ({ greeting }) => {
     const [listProducts, setListProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const url_base = "https://fakestoreapi.com/products";
-    const url_category = "https://fakestoreapi.com/products/category/";
-
     useEffect(() => {
+
         setLoading(true);
-        fetch(
-            categoryID === undefined
-                ? `${url_base}`
-                : `${url_category}${categoryID}`
-        )
-            .then((res) => res.json())
-            .then((productList) => {
-                setListProducts(productList);
-                console.log(productList);
+        const productsCollection = collection(db, 'products');
+        const productsCategory = query(productsCollection, where ('category', '==',  `${categoryID}`))
+        let url = (categoryID === undefined ? productsCollection : productsCategory)
+        getDocs(url)
+        .then((data)=>{
+            const products = data.docs.map((product)=>{
+                return {
+                    ...product.data(),
+                    id: product.id
+                }
+                    
             })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, [categoryID]);
+            setListProducts(products)
+
+        })
+        .catch(()=>{
+            console.log("error")
+        })
+        .finally(()=>{ 
+            setLoading(false)
+        }
+        )
+     }, [categoryID]);
 
     return (
         <>
@@ -42,10 +51,10 @@ const ItemListContainer = ({ greeting }) => {
                     size={150}
                 />
             ) : (
-                <ItemList listProducts={listProducts} />
+                <ItemList listProducts = { listProducts } />
             )}
         </>
     );
-};
+}
 
-export default ItemListContainer;
+export default ItemListContainer
