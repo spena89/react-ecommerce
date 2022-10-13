@@ -13,7 +13,6 @@ import { Typography, Button, FormHelperText } from "@mui/material";
 import { FormControl, Input, InputLabel } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
 
 const Form = () => {
     const { cartList, totalPrice, emptyCart } = useCartContext();
@@ -44,12 +43,6 @@ const Form = () => {
             cartList.forEach((product) => {
                 updateStock(product);
             });
-            <Modal>
-                <Typography>
-                    test modal
-                </Typography>
-
-            </Modal>
             emptyCart();
         });
     };
