@@ -13,11 +13,13 @@ import Grid from "@mui/material/Grid";
 import Fade from "@mui/material/Fade";
 import "./Cart.css";
 
+import { Link } from "react-router-dom";
+
 const Cart = () => {
     const { cartList, totalPrice, removeProduct, emptyCart } = useCartContext();
     const [inHover, setHover] = useState(false);
-    
     return (
+
         <div>
             {cartList.map((prod) => (
                 <Card sx={{ minWidth: 275, margin: "6px"}} key={prod.id}>
@@ -62,8 +64,8 @@ const Cart = () => {
 
                             <Grid item xs={4}>
                                 <DeleteIcon
-                                    onMouseOver={() => setHover(true)}
-                                    // onMouseLeave={() => setHover(false)}
+                                    onMouseEnter={() => setHover(true)}
+                                    onMouseLeave={() => setHover(false)}
                                     aria-label="delete"
                                     onClick={() => removeProduct(prod.id)}
                                     />
@@ -99,6 +101,16 @@ const Cart = () => {
                             onClick={() => emptyCart()}>
                             Vaciar carrito
                         </Button>
+                        <Link to='/checkout' style={linkStyles.links}>
+                        <Button
+                            display="flex"
+                            position="flexStart"
+                            variant="contained"
+                            color="success"
+                            size="small">
+                            Finalizar Compra
+                        </Button>
+                                </Link>
                         <p>Cart Total : USD ${totalPrice()}</p>
                     </Box>
                     <Box display="flex" justifyContent="start"></Box>
@@ -108,4 +120,11 @@ const Cart = () => {
     );
 };
 
+const linkStyles = {
+    links: {
+        textDecoration: "none",
+        color: "white",
+        margin:"10px"
+    },
+};
 export { Cart };
