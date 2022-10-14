@@ -15,10 +15,10 @@ const ItemDetails = ({ prod }) => {
     
     const onAdd = (quantity) => {
         setGoToCart(true);
-        console.log(quantity)
+        
         addToCart(prod, quantity)
     };
-    console.log(prod)
+    
 
     return (
         <Box sx={{ marginTop: 10 }}>
@@ -54,7 +54,6 @@ const ItemDetails = ({ prod }) => {
                             color="primary"
                             >
                             Finish Purchase
-                            {console.log(cartList)}
                         </Button>
                     </Link>
                 ) : (

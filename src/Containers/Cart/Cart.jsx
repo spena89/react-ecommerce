@@ -18,8 +18,8 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const { cartList, totalPrice, removeProduct, emptyCart } = useCartContext();
     const [inHover, setHover] = useState(false);
+   
     return (
-
         <div>
             {cartList.map((prod) => (
                 <Card sx={{ minWidth: 275, margin: "6px"}} key={prod.id}>

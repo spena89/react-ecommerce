@@ -16,11 +16,8 @@ import Box from '@mui/material/Box';
 
 const Form = () => {
     const { cartList, totalPrice, emptyCart } = useCartContext();
-    const [userData, setUserData] = useState({
-       
-    });
-
-    const [ventaID, setVentaID] = useState("");
+    const [userData, setUserData] = useState({ });
+    const [ventaID, setVentaID] = useState();
 
     const inputChange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value });
@@ -43,7 +40,10 @@ const Form = () => {
             cartList.forEach((product) => {
                 updateStock(product);
             });
-            emptyCart();
+            setTimeout(()=>{
+                emptyCart();
+            },10000)
+
         });
     };
 
@@ -103,7 +103,7 @@ const Form = () => {
                 </Grid>
                 <Grid item md={12}>
                     <Box margin={3}>
-                    <Link style={linkStyles.links} className="Link-Home" to="/">
+                    {/* <Link style={linkStyles.links} className="Link-Home" to="/"> */}
                         <Button
                             variant="contained"
                             type="Submit"
@@ -111,17 +111,20 @@ const Form = () => {
                             onClick={finalizarCompra}>
                             Aceptar
                         </Button>
-                        </Link>
-                        <Link style={linkStyles.links} className="Link-Home" to="/">
+                        {/* </Link> */}
+                         <Link style={linkStyles.links} to="/"> 
                             <Button
                                 variant="contained"
                                 size="small"
                                 color="error">
                                 Cancelar
                             </Button>
-                        </Link>
+                        </Link> 
                     </Box>
                 </Grid>
+                    <p>
+                        El código de verificación de tu compra es: <b> {ventaID} </b>
+                        </p>
             </Grid>
 
     );
