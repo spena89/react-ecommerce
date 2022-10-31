@@ -10,7 +10,7 @@ const CartWidget = () => {
     return (
         <>
             {totalQuantity() === 0 ? (
-                <ShoppingCartIcon/>
+                <ShoppingCartIcon />
             ) : (
                 <>
                     <ShoppingCartIcon />

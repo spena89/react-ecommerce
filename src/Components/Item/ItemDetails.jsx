@@ -5,20 +5,18 @@ import ItemCount from "../../Containers/ItemListContainer/ItemCount";
 import "../../Containers/ItemListContainer/itemCount.css";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
-import {useCartContext} from "../../Context/CartContext"
+import { useCartContext } from "../../Context/CartContext";
 
 const ItemDetails = ({ prod }) => {
-
     const [goToCart, setGoToCart] = useState(false);
 
-    const {addToCart, cartList} = useCartContext();
-    
+    const { addToCart } = useCartContext();
+
     const onAdd = (quantity) => {
         setGoToCart(true);
-        
-        addToCart(prod, quantity)
+
+        addToCart(prod, quantity);
     };
-    
 
     return (
         <Box sx={{ marginTop: 10 }}>
@@ -49,10 +47,7 @@ const ItemDetails = ({ prod }) => {
             <Box display="flex" justifyContent="center" alignItems="center">
                 {goToCart ? (
                     <Link style={linkStyles.links} to="/cart">
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            >
+                        <Button variant="contained" color="primary">
                             Finish Purchase
                         </Button>
                     </Link>

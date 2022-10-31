@@ -18,12 +18,12 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const { cartList, totalPrice, removeProduct, emptyCart } = useCartContext();
     const [inHover, setHover] = useState(false);
-   
+
     return (
         <div>
             {cartList.map((prod) => (
-                <Card sx={{ minWidth: 275, margin: "6px"}} key={prod.id}>
-                    <Fade in = {true} timeout={600}>
+                <Card sx={{ minWidth: 275, margin: "6px" }} key={prod.id}>
+                    <Fade in={true} timeout={600}>
                         <Grid
                             className="cartItem"
                             container
@@ -68,8 +68,8 @@ const Cart = () => {
                                     onMouseLeave={() => setHover(false)}
                                     aria-label="delete"
                                     onClick={() => removeProduct(prod.id)}
-                                    />
-                                    {inHover && (
+                                />
+                                {inHover && (
                                     <span className="delete">Delete?</span>
                                 )}
                             </Grid>
@@ -101,16 +101,16 @@ const Cart = () => {
                             onClick={() => emptyCart()}>
                             Vaciar carrito
                         </Button>
-                        <Link to='/checkout' style={linkStyles.links}>
-                        <Button
-                            display="flex"
-                            position="flexStart"
-                            variant="contained"
-                            color="success"
-                            size="small">
-                            Finalizar Compra
-                        </Button>
-                                </Link>
+                        <Link to="/checkout" style={linkStyles.links}>
+                            <Button
+                                display="flex"
+                                position="flexStart"
+                                variant="contained"
+                                color="success"
+                                size="small">
+                                Finalizar Compra
+                            </Button>
+                        </Link>
                         <p>Cart Total : USD ${totalPrice()}</p>
                     </Box>
                     <Box display="flex" justifyContent="start"></Box>
@@ -124,7 +124,7 @@ const linkStyles = {
     links: {
         textDecoration: "none",
         color: "white",
-        margin:"10px"
+        margin: "10px",
     },
 };
 export { Cart };

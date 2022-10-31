@@ -1,7 +1,7 @@
 # React based E-commerce
 
-This is a project developed for the React course from Coderhouse.
-It's for learning purposes only
+This is a project developed for the ReactJS course from Coderhouse.
+It's for learning purposes only. The app is deployed in 
 
 ## Features
 
@@ -11,10 +11,12 @@ It's for learning purposes only
 - API usage
 - Routing and Navigation
 
-## 🛠 Skills
+## 🛠 Technology and libraries used
 - HTML and CSS
 - Material UI library
-- Javascript
+- Javascript and React JS
+- Firebase db
+- Sweet Alert2
 
 ## Author
 

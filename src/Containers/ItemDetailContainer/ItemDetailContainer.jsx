@@ -4,7 +4,7 @@ import "../ItemListContainer/Spinner.css";
 import ItemDetails from "../../Components/Item/ItemDetails";
 import { useParams } from "react-router-dom";
 import { db } from "../../Firebase/firebase";
-import { doc, getDoc, collection } from "firebase/firestore"
+import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
@@ -13,25 +13,20 @@ const ItemDetailContainer = () => {
     const { productID } = useParams();
 
     useEffect(() => {
-            const productCollection = collection(db,'products')
-            const refDoc = doc(productCollection, productID)
-            getDoc(refDoc)
-            .then((result)=>{
-                setProduct(
-                    {
-                        id:result.id,
-                        ...result.data()
-                    }
-                )
+        const productCollection = collection(db, "products");
+        const refDoc = doc(productCollection, productID);
+        getDoc(refDoc)
+            .then((result) => {
+                setProduct({
+                    id: result.id,
+                    ...result.data(),
+                });
             })
-            .catch(()=>{
-                console.log("error")
-            })
-            .finally(()=>{ 
-                setLoading(false)
-            }
-            )
-         }, [productID]);
+            .catch(() => {})
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [productID]);
 
     return (
         <>
