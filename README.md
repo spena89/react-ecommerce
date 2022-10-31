@@ -1,7 +1,9 @@
 # React based E-commerce
 
 This is a project developed for the ReactJS course from Coderhouse.
-It's for learning purposes only. The app is deployed in 
+It's for learning purposes only.
+## App Deployment
+The app is deployed [here](https://react-ecommerce-orcin.vercel.app/)
 
 ## Features
 
